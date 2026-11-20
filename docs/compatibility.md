@@ -10,9 +10,11 @@ All plugin formats use the same per-plugin `skills/` directory. Metadata is dupl
 | Cursor | `.cursor-plugin/plugin.json` and marketplace | Installation smoke test required before release |
 | Other skill-aware agents | Individual skill directories | Not tested yet |
 
-The engineering plugin includes `pr-description`. There are no hooks, MCP servers, or required provider-specific tools. Manifest checks do not prove installation, discovery, or skill behavior in any host.
+The engineering plugin includes `pr-description` and `prove-it-works`. There are no hooks, MCP servers, or required provider-specific tools. Manifest checks do not prove installation, discovery, or skill behavior in any host.
 
 The [authoring validation record](validation/pr-description.md) contains synthetic walkthroughs and structural-check results. These do not establish installation or live behavior across hosts.
+
+The [prove-it-works validation record](validation/prove-it-works.md) distinguishes author-run checks from installation and independent behavioral testing.
 
 Authoring references checked November 19, 2026:
 

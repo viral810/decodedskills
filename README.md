@@ -2,7 +2,7 @@
 
 Original, composable skills for agentic software development.
 
-**Status:** v0.2.0 preview. The engineering plugin includes `pr-description`, our first skill. Host installation and end-to-end behavior still need testing.
+**Status:** v0.3.0 preview. The engineering plugin includes `pr-description` and `prove-it-works`. Host installation and end-to-end behavior still need testing.
 
 ## Local development
 
@@ -49,8 +49,9 @@ Agents supporting Agent Skills can consume individual `plugins/engineering/skill
 ## Engineering skills
 
 - [pr-description](plugins/engineering/skills/pr-description/SKILL.md): explain the request and resulting behavior, include recorded insights and existing evidence, and flag gaps. Drafts by default; publishes only when explicitly requested.
+- [prove-it-works](plugins/engineering/skills/prove-it-works/SKILL.md): verify implemented behavior with focused checks and report what the observed evidence supports, including remaining gaps.
 
-See [engineering usage](plugins/engineering/README.md) and the [authoring validation record](docs/validation/pr-description.md).
+See [engineering usage](plugins/engineering/README.md) and the authoring validation records for [pr-description](docs/validation/pr-description.md) and [prove-it-works](docs/validation/prove-it-works.md).
 
 ## Repository layout
 

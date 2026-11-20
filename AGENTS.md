@@ -1,6 +1,6 @@
 # Working in DecodedSkills
 
-This repository distributes original agent skills. The engineering plugin currently includes `pr-description`.
+This repository distributes original agent skills. The engineering plugin currently includes `pr-description` and `prove-it-works`.
 
 - Keep canonical skills in `plugins/<plugin>/skills/<kebab-case-name>/SKILL.md`.
 - Do not copy third-party skill text. Attribute external ideas and references.

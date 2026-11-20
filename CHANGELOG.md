@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## 0.3.0 — 2026-11-20 (preview)
+
+- Add `prove-it-works` for behavior-focused verification and evidence reports, independently authored with attribution to pstack's verification principle.
+
 ## 0.2.0 — 2026-11-20 (preview)
 
 - Add `pr-description` for concise PR/MR descriptions grounded in intent, recorded insights, and existing evidence.
