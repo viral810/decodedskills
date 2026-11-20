@@ -1,8 +1,7 @@
 {
-  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
-  "name": "decodedskills",
+  "name": "engineering",
   "version": "0.1.0",
-  "description": "Original, composable skills for agentic software development.",
+  "description": "Engineering skills for agentic software development.",
   "author": {
     "name": "Viral Patel"
   },

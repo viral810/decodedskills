@@ -1,7 +1,7 @@
 {
-  "name": "decodedskills",
+  "name": "engineering",
   "version": "0.1.0",
-  "description": "Original, composable skills for agentic software development.",
+  "description": "Engineering skills for agentic software development.",
   "author": {
     "name": "Viral Patel"
   },
@@ -11,6 +11,7 @@
     "software-engineering",
     "developer-tools"
   ],
+  "skills": "./skills/",
   "repository": "https://github.com/viral810/decodedskills",
   "homepage": "https://github.com/viral810/decodedskills"
 }

@@ -10,8 +10,8 @@ Requires Python 3.11+ for repository checks. The plugin itself has no runtime de
 
 ```sh
 python3 scripts/validate.py
-claude plugin validate .
-claude --plugin-dir .
+claude plugin validate plugins/engineering
+claude --plugin-dir ./plugins/engineering
 ```
 
 The last command opens Claude Code with the local plugin. Until skills are added, it exposes no workflows.
@@ -24,7 +24,7 @@ Run these inside Claude Code:
 
 ```text
 /plugin marketplace add viral810/decodedskills
-/plugin install decodedskills@decodedskills
+/plugin install engineering@decodedskills
 ```
 
 For local development, replace `viral810/decodedskills` with the absolute path to your clone.
@@ -35,24 +35,24 @@ Run in your terminal:
 
 ```sh
 codex plugin marketplace add viral810/decodedskills
-codex plugin add decodedskills@decodedskills
+codex plugin add engineering@decodedskills
 ```
 
 For local development, replace `viral810/decodedskills` with the absolute path to your clone.
 
 ### Cursor and other agents
 
-The root `plugin.json` uses the Agent Plugins format. A Cursor manifest is also included. Cursor marketplace publication is a separate step; this repository has not been listed there.
+Each plugin’s `plugin.json` uses the Agent Plugins format. A Cursor manifest is also included. Cursor marketplace publication is a separate step; this repository has not been listed there.
 
-Agents supporting Agent Skills can consume individual `skills/<name>/` directories once skills exist. Agent-specific installation instructions will be added after testing. Install through one method per agent to avoid duplicate skills.
+Agents supporting Agent Skills can consume individual `plugins/engineering/skills/<name>/` directories once skills exist. Agent-specific installation instructions will be added after testing. Install through one method per agent to avoid duplicate skills.
 
 ## Repository layout
 
-- `skills/`: canonical skill content, shared across agents.
-- `plugin.json`: portable Agent Plugins manifest.
-- `.claude-plugin/`: Claude Code manifest and marketplace.
-- `.cursor-plugin/`: Cursor manifest and marketplace.
-- `.agents/plugins/`: Codex marketplace pointing to this plugin.
+- `plugins/engineering/`: empty engineering plugin, with portable and host manifests.
+- `plugins/engineering/skills/`: canonical engineering skills, shared across agents.
+- `.claude-plugin/marketplace.json`: Claude Code plugin catalog.
+- `.cursor-plugin/marketplace.json`: Cursor plugin catalog.
+- `.agents/plugins/marketplace.json`: Codex plugin catalog.
 - `templates/skill/`: authoring template, excluded from the installed skill collection.
 - `scripts/validate.py`: dependency-free repository checks.
 - `docs/`: compatibility notes and release checklist.

@@ -16,31 +16,20 @@ def load(path):
     return json.loads((ROOT / path).read_text())
 
 
-def validate():
-    canonical = load('plugin.json')
+def validate_plugin(plugin_path):
+    canonical = load(plugin_path / 'plugin.json')
     check(canonical['$schema'] == 'https://agent-plugins.org/schemas/1.0.0/plugin.schema.json', 'Unexpected portable schema')
+    check(canonical['name'] == plugin_path.name, 'Plugin name must match directory')
     check(re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', canonical['name']), 'Invalid plugin name')
     check(re.fullmatch(r'\d+\.\d+\.\d+', canonical['version']), 'Use a stable major.minor.patch version')
-    for path in ['.claude-plugin/plugin.json', '.cursor-plugin/plugin.json']:
+    for host in ['.claude-plugin', '.cursor-plugin']:
+        path = plugin_path / host / 'plugin.json'
         manifest = load(path)
-        for key in ['name', 'version', 'description', 'author', 'license', 'keywords']:
+        for key in ['name', 'version', 'description', 'author', 'license', 'keywords', 'repository', 'homepage']:
             check(manifest[key] == canonical[key], f'{path}: {key} differs from plugin.json')
-    check(load('.cursor-plugin/plugin.json')['skills'] == './skills/', 'Cursor must share root skills')
-    for path in ['.claude-plugin/marketplace.json', '.cursor-plugin/marketplace.json', '.agents/plugins/marketplace.json']:
-        market = load(path)
-        check(market['name'] == canonical['name'], f'{path}: inconsistent marketplace name')
-        check(len(market['plugins']) == 1, f'{path}: expected one plugin')
-        entry = market['plugins'][0]
-        check(entry['name'] == canonical['name'], f'{path}: inconsistent plugin name')
-        source = entry['source']
-        if isinstance(source, dict):
-            check(source == {'source': 'local', 'path': './'}, f'{path}: unexpected source')
-            check(entry['policy'] == {'installation': 'AVAILABLE', 'authentication': 'ON_INSTALL'}, f'{path}: unexpected policy')
-            check(entry['category'] == 'Productivity', f'{path}: unexpected category')
-        else:
-            check(source == './', f'{path}: plugin must point to repository root')
+    check(load(plugin_path / '.cursor-plugin/plugin.json')['skills'] == './skills/', 'Cursor must share plugin skills')
     count = 0
-    for directory in sorted((ROOT / 'skills').iterdir()):
+    for directory in sorted((ROOT / plugin_path / 'skills').iterdir()):
         if directory.name.startswith('.'):
             continue
         check(directory.is_dir(), f'{directory.name}: expected a skill directory')
@@ -61,7 +50,32 @@ def validate():
         check(bool(fields.get('description')), f'{directory.name}: description is required')
         check('Replace these steps' not in text, f'{directory.name}: unfinished template')
         count += 1
-    print(f'Validated manifests, marketplaces, and {count} skill(s).')
+    return count
+
+
+def validate():
+    plugins = sorted(p for p in (ROOT / 'plugins').iterdir() if not p.name.startswith('.'))
+    check(bool(plugins), 'At least one plugin is required')
+    expected = {p.name: './plugins/' + p.name for p in plugins}
+    count = 0
+    for plugin in plugins:
+        check(plugin.is_dir() and not plugin.is_symlink(), f'{plugin.name}: expected a local plugin directory')
+        count += validate_plugin(plugin.relative_to(ROOT))
+    for path in ['.claude-plugin/marketplace.json', '.cursor-plugin/marketplace.json', '.agents/plugins/marketplace.json']:
+        market = load(path)
+        check(market['name'] == 'decodedskills', f'{path}: inconsistent marketplace name')
+        entries = market['plugins']
+        check(len(entries) == len(expected), f'{path}: missing or duplicate plugins')
+        check({entry['name'] for entry in entries} == set(expected), f'{path}: catalog does not match plugin directories')
+        for entry in entries:
+            source = entry['source']
+            if path.startswith('.agents/'):
+                check(source == {'source': 'local', 'path': expected[entry['name']]}, f'{path}: unexpected source')
+                check(entry['policy'] == {'installation': 'AVAILABLE', 'authentication': 'ON_INSTALL'}, f'{path}: unexpected policy')
+                check(bool(entry['category']), f'{path}: missing category')
+            else:
+                check(source == expected[entry['name']], f'{path}: unexpected source')
+    print(f'Validated {len(plugins)} plugin(s), marketplaces, and {count} skill(s).')
     if not count:
         print('Scaffold only: no installable skills yet.')
 

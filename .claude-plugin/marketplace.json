@@ -5,9 +5,9 @@
   },
   "plugins": [
     {
-      "name": "decodedskills",
-      "source": "./",
-      "description": "Original, composable skills for agentic software development."
+      "name": "engineering",
+      "source": "./plugins/engineering",
+      "description": "Engineering skills for agentic software development."
     }
   ],
   "description": "Original skills for agentic software development."

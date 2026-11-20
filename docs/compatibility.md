@@ -1,12 +1,12 @@
 # Compatibility
 
-All plugin formats use the same root `skills/` directory. Metadata is duplicated in small manifests and checked for consistency by CI.
+All plugin formats use the same per-plugin `skills/` directory. Metadata is duplicated in small manifests and checked for consistency by CI.
 
 | Surface | Packaging | Verification |
 | --- | --- | --- |
-| Agent Plugins | Root `plugin.json`, standard skill discovery | Local structural checks |
-| Claude Code | `.claude-plugin/plugin.json` and marketplace | Run `claude plugin validate .`; installation smoke test required before release |
-| Codex | `.agents/plugins/marketplace.json` pointing to root Agent Plugin | Installation smoke test required before release |
+| Agent Plugins | Per-plugin `plugin.json`, standard skill discovery | Local structural checks |
+| Claude Code | `.claude-plugin/plugin.json` and marketplace | Run `claude plugin validate plugins/engineering`; installation smoke test required before release |
+| Codex | `.agents/plugins/marketplace.json` pointing to engineering Agent Plugin | Installation smoke test required before release |
 | Cursor | `.cursor-plugin/plugin.json` and marketplace | Installation smoke test required before release |
 | Other skill-aware agents | Individual skill directories | Not tested yet |
 
