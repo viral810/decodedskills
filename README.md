@@ -2,7 +2,7 @@
 
 Original, composable skills for agentic software development.
 
-**Status:** foundation only. No skills ship yet. Our engineering philosophy and first workflows will be developed here.
+**Status:** v0.2.0 preview. The engineering plugin includes `pr-description`, our first skill. Host installation and end-to-end behavior still need testing.
 
 ## Local development
 
@@ -14,7 +14,7 @@ claude plugin validate plugins/engineering
 claude --plugin-dir ./plugins/engineering
 ```
 
-The last command opens Claude Code with the local plugin. Until skills are added, it exposes no workflows.
+The last command opens Claude Code with the local engineering plugin. Ask it to use `pr-description` to draft a PR/MR description.
 
 ## Installation
 
@@ -44,11 +44,17 @@ For local development, replace `viral810/decodedskills` with the absolute path t
 
 Each plugin’s `plugin.json` uses the Agent Plugins format. A Cursor manifest is also included. Cursor marketplace publication is a separate step; this repository has not been listed there.
 
-Agents supporting Agent Skills can consume individual `plugins/engineering/skills/<name>/` directories once skills exist. Agent-specific installation instructions will be added after testing. Install through one method per agent to avoid duplicate skills.
+Agents supporting Agent Skills can consume individual `plugins/engineering/skills/<name>/` directories. Agent-specific installation instructions will be added after testing. Install through one method per agent to avoid duplicate skills.
+
+## Engineering skills
+
+- [pr-description](plugins/engineering/skills/pr-description/SKILL.md): explain the request and resulting behavior, include recorded insights and existing evidence, and flag gaps. Drafts by default; publishes only when explicitly requested.
+
+See [engineering usage](plugins/engineering/README.md) and the [authoring validation record](docs/validation/pr-description.md).
 
 ## Repository layout
 
-- `plugins/engineering/`: empty engineering plugin, with portable and host manifests.
+- `plugins/engineering/`: engineering plugin, with portable and host manifests.
 - `plugins/engineering/skills/`: canonical engineering skills, shared across agents.
 - `.claude-plugin/marketplace.json`: Claude Code plugin catalog.
 - `.cursor-plugin/marketplace.json`: Cursor plugin catalog.
