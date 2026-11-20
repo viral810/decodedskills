@@ -1,0 +1,16 @@
+{
+  "name": "decodedskills",
+  "version": "0.1.0",
+  "description": "Original, composable skills for agentic software development.",
+  "author": {
+    "name": "Viral Patel"
+  },
+  "license": "MIT",
+  "keywords": [
+    "agent-skills",
+    "software-engineering",
+    "developer-tools"
+  ],
+  "repository": "https://github.com/viral810/decodedskills",
+  "homepage": "https://github.com/viral810/decodedskills"
+}

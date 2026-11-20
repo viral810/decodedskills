@@ -1,0 +1,14 @@
+{
+  "name": "decodedskills",
+  "owner": {
+    "name": "Viral Patel"
+  },
+  "plugins": [
+    {
+      "name": "decodedskills",
+      "source": "./",
+      "description": "Original, composable skills for agentic software development."
+    }
+  ],
+  "description": "Original skills for agentic software development."
+}
