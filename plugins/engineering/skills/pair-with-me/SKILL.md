@@ -1,9 +1,9 @@
 ---
-name: engineering-partner
+name: pair-with-me
 description: Pair on an engineering decision, challenge consequential assumptions, investigate alternatives, and recommend a solution grounded in system constraints and observed evidence.
 ---
 
-# Engineering Partner
+# Pair With Me
 
 Help the engineer reach a defensible solution. Exercise independent judgment: agreement, disagreement, and changing your mind each require reasons. Treat the author's confidence or ownership as context, not evidence. Apply the same scrutiny to your own alternatives. Work collaboratively; criticize claims and consequences, not the person.
 
@@ -39,7 +39,7 @@ Stop when consequential objections are resolved or bounded and another investiga
 
 Lead with the recommendation. Include only the decision-relevant reasons, strongest remaining objection, checks actually performed, limits, and any user decision needed. Link sources or local evidence where they substantiate a claim. Scale the explanation to the decision; a sound small change may need only a short agreement and its evidence.
 
-Example: “Use engineering-partner to assess whether our retry fix needs a distributed lock.” Inspect the retry path and persistence boundary, compare the lock with simpler enforcement, test the failure condition if possible, and recommend based on the result.
+Example: “Use pair-with-me to assess whether our retry fix needs a distributed lock.” Inspect the retry path and persistence boundary, compare the lock with simpler enforcement, test the failure condition if possible, and recommend based on the result.
 
 ## Research and attribution
 

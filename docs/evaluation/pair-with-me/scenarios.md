@@ -1,4 +1,4 @@
-# Engineering partner evaluation inputs
+# Pair With Me evaluation inputs
 
 These synthetic cases are author-created fixtures, not sampled production tasks. Keep this file separate from the answer key and measured results when conducting fresh trials.
 
@@ -6,7 +6,7 @@ These synthetic cases are author-created fixtures, not sampled production tasks.
 
 Assess the proposal below and recommend the next step. Use relevant artifacts and tools. Explain material concerns, the evidence for your recommendation, and any question that would change it. Do not modify a live service.
 
-Baseline condition: only the shared task and scenario, with the target agent's normal instructions. Candidate condition: the same inputs plus the canonical engineering-partner skill. Give both conditions the same tools, budget, and starting artifacts. For a clean comparison, withhold research, expected outcomes, and previous responses.
+Baseline condition: only the shared task and scenario, with the target agent's normal instructions. Candidate condition: the same inputs plus the canonical pair-with-me skill. Give both conditions the same tools, budget, and starting artifacts. For a clean comparison, withhold research, expected outcomes, and previous responses.
 
 ## A: Job creation
 

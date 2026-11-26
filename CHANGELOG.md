@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-- Add `engineering-partner` for evidence-driven pairing, consequential challenges, alternatives, experiments, and justified agreement, with attributed research and author-run evaluation records.
+- Add `pair-with-me` for evidence-driven pairing, consequential challenges, alternatives, experiments, and justified agreement, with attributed research and author-run evaluation records.
 
 ## 0.3.0 — 2026-11-20 (preview)
 

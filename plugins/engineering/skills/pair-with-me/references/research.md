@@ -1,4 +1,4 @@
-# Evidence behind engineering-partner
+# Evidence behind pair-with-me
 
 Research date: November 26, 2026. This is a focused narrative research review, not a systematic review or evidence that this particular skill improves outcomes.
 
@@ -104,4 +104,4 @@ Rejected as defaults: always disagreeing, requiring a fixed number of flaws, man
 
 Remaining user choices include relative weight of delivery time, operational burden, latency, storage, and acceptable residual risk. Experiments can measure consequences; they cannot choose those values. Use project constraints when already supplied and ask only where a consequential priority remains unresolved.
 
-See [authoring validation](../../../../../docs/validation/engineering-partner.md) for executed experiments, the limited response rehearsal, and remaining host and independent behavioral checks. All prose is independently authored; no third-party skill text is incorporated.
+See [authoring validation](../../../../../docs/validation/pair-with-me.md) for executed experiments, the limited response rehearsal, and remaining host and independent behavioral checks. All prose is independently authored; no third-party skill text is incorporated.

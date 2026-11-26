@@ -131,7 +131,7 @@ def index_tradeoff(root):
 
 
 def main():
-    with tempfile.TemporaryDirectory(prefix='engineering-partner-') as directory:
+    with tempfile.TemporaryDirectory(prefix='pair-with-me-') as directory:
         root = Path(directory)
         result = {
             'environment': {'python': platform.python_version(), 'sqlite': sqlite3.sqlite_version,

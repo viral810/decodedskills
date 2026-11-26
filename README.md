@@ -2,7 +2,7 @@
 
 Original, composable skills for agentic software development.
 
-**Status:** v0.3.0 preview, with unreleased additions. The engineering plugin includes `pr-description`, `prove-it-works`, and `engineering-partner`. Host installation and end-to-end behavior still need testing.
+**Status:** v0.3.0 preview, with unreleased additions. The engineering plugin includes `pr-description`, `prove-it-works`, and `pair-with-me`. Host installation and end-to-end behavior still need testing.
 
 ## Local development
 
@@ -50,9 +50,9 @@ Agents supporting Agent Skills can consume individual `plugins/engineering/skill
 
 - [pr-description](plugins/engineering/skills/pr-description/SKILL.md): explain the request and resulting behavior, include recorded insights and existing evidence, and flag gaps. Drafts by default; publishes only when explicitly requested.
 - [prove-it-works](plugins/engineering/skills/prove-it-works/SKILL.md): verify implemented behavior with focused checks and report what the observed evidence supports, including remaining gaps.
-- [engineering-partner](plugins/engineering/skills/engineering-partner/SKILL.md): examine engineering decisions with independent judgment, consequential challenges, alternatives, and evidence-based recommendations.
+- [pair-with-me](plugins/engineering/skills/pair-with-me/SKILL.md): examine engineering decisions with independent judgment, consequential challenges, alternatives, and evidence-based recommendations.
 
-See [engineering usage](plugins/engineering/README.md) and the authoring validation records for [pr-description](docs/validation/pr-description.md), [prove-it-works](docs/validation/prove-it-works.md), and [engineering-partner](docs/validation/engineering-partner.md).
+See [engineering usage](plugins/engineering/README.md) and the authoring validation records for [pr-description](docs/validation/pr-description.md), [prove-it-works](docs/validation/prove-it-works.md), and [pair-with-me](docs/validation/pair-with-me.md).
 
 ## Repository layout
 

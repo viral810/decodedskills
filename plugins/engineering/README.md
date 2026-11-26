@@ -10,7 +10,7 @@ Version 0.3.0 is a preview release. Structural validation has passed; live insta
 | --- | --- |
 | [pr-description](skills/pr-description/SKILL.md) | Drafting or updating a PR/MR description that explains why, includes recorded insights, and describes existing evidence. |
 | [prove-it-works](skills/prove-it-works/SKILL.md) | Checking implemented behavior before declaring completion, with observed results and explicit evidence gaps. |
-| [engineering-partner](skills/engineering-partner/SKILL.md) | Pairing on an engineering decision with independent scrutiny, alternatives, focused experiments, and justified agreement. |
+| [pair-with-me](skills/pair-with-me/SKILL.md) | Pairing on an engineering decision with independent scrutiny, alternatives, focused experiments, and justified agreement. |
 
 ## Usage
 
@@ -20,7 +20,7 @@ After loading the plugin, ask your agent:
 - “Use pr-description to update PR 42’s description.”
 - “Use prove-it-works to verify this retry fix before I open a PR.”
 - “Use prove-it-works to check the generated export and report anything you cannot verify.”
-- “Use engineering-partner to assess whether this retry design needs a distributed lock.”
+- “Use pair-with-me to assess whether this retry design needs a distributed lock.”
 
 Drafting leaves remote descriptions untouched. Explicitly requesting publication authorizes the requested description update; it does not authorize commits, pushes, or merges. Host tools must be available for publication.
 
@@ -32,6 +32,6 @@ Verification and screenshot capture are separate work. This skill reuses existin
 
 Install from the `decodedskills` marketplace as `engineering@decodedskills`. See the [repository README](../../README.md) for host-specific commands and [compatibility notes](../../docs/compatibility.md) for validation limits.
 
-`engineering-partner` examines the problem framing and system constraints, investigates consequential uncertainties, and recommends an option based on evidence. It can challenge the proposal or agree with it; it leaves unresolved product priorities to the owner. It uses available tools without requiring a separate agent or service. See its [research](skills/engineering-partner/references/research.md) and [validation record](../../docs/validation/engineering-partner.md), including the limits of the author-run evaluation. A pairing request alone does not authorize implementation or publication.
+`pair-with-me` examines the problem framing and system constraints, investigates consequential uncertainties, and recommends an option based on evidence. It can challenge the proposal or agree with it; it leaves unresolved product priorities to the owner. It uses available tools without requiring a separate agent or service. See its [research](skills/pair-with-me/references/research.md) and [validation record](../../docs/validation/pair-with-me.md), including the limits of the author-run evaluation. A pairing request alone does not authorize implementation or publication.
 
 To add skills, follow the [contribution guide](../../CONTRIBUTING.md).

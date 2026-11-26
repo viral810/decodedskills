@@ -1,10 +1,10 @@
-# Engineering Partner authoring validation
+# Pair With Me authoring validation
 
 Date: November 26, 2026.
 
 ## Scope and verdict
 
-Implemented the portable [engineering-partner skill](../../plugins/engineering/skills/engineering-partner/SKILL.md), informed by [primary research and firsthand engineering practice](../../plugins/engineering/skills/engineering-partner/references/research.md). Fourteen research entries document findings, contrary evidence, adopted practices, and inference limits.
+Implemented the portable [pair-with-me skill](../../plugins/engineering/skills/pair-with-me/SKILL.md), informed by [primary research and firsthand engineering practice](../../plugins/engineering/skills/pair-with-me/references/research.md). Fourteen research entries document findings, contrary evidence, adopted practices, and inference limits.
 
 The skill and package pass structural checks. Executed synthetic engineering experiments support the recommendations below. A same-session response rehearsal compares a minimal candidate with ordinary-assistant-style responses, but an independently executed ordinary-assistant versus skill trial has **not** been performed. Host installation, automatic selection, and end-to-end pairing remain unverified. Do not describe these results as evidence of improved model accuracy or developer productivity.
 
@@ -15,10 +15,10 @@ The author used this Codex session; a precise underlying model/build identifier 
 Command, from the repository root:
 
 ```sh
-python3 docs/evaluation/engineering-partner/experiment.py
+python3 docs/evaluation/pair-with-me/experiment.py
 ```
 
-The dependency-free Python 3.11+ script creates temporary SQLite databases, prints JSON, and removes its databases. It performs no network requests or live-service writes. [Saved results](../evaluation/engineering-partner/results.json) contain the actual run, including all performance samples and query plans. A rerun produces new timings; do not expect byte-for-byte identical JSON.
+The dependency-free Python 3.11+ script creates temporary SQLite databases, prints JSON, and removes its databases. It performs no network requests or live-service writes. [Saved results](../evaluation/pair-with-me/results.json) contain the actual run, including all performance samples and query plans. A rerun produces new timings; do not expect byte-for-byte identical JSON.
 
 Environment recorded by the run: Python 3.13.5, SQLite 3.49.1, macOS 26.7.3 on arm64.
 
@@ -44,7 +44,7 @@ The race experiment forces one valid interleaving, rather than estimating a fail
 
 ## Response comparison and evaluation limits
 
-See the exact [scenario inputs](../evaluation/engineering-partner/scenarios.md) and [minimal candidate plus response rehearsal](../evaluation/engineering-partner/response-rehearsal.md). The rehearsal is authored, unblinded, and contaminated by prior knowledge. It is not a transcript from fresh model invocations. No efficacy scores, statistical significance, or causal improvement claims are assigned.
+See the exact [scenario inputs](../evaluation/pair-with-me/scenarios.md) and [minimal candidate plus response rehearsal](../evaluation/pair-with-me/response-rehearsal.md). The rehearsal is authored, unblinded, and contaminated by prior knowledge. It is not a transcript from fresh model invocations. No efficacy scores, statistical significance, or causal improvement claims are assigned.
 
 The ordinary-assistant-style comparator identifies the core issues too. The observed engineering results support grounding recommendations in tests, accepting B, and making C conditional; they do not show that an ordinary assistant would fail or that the larger skill outperforms the minimal candidate. Recommend this compact process as an initial design to evaluate, rather than claiming an empirically selected winning prompt.
 
@@ -61,9 +61,13 @@ This protocol is provided for reproducibility; it was not executed in this sessi
 | Check | Result |
 | --- | --- |
 | `python3 scripts/validate.py` | Passed: one plugin, marketplaces, three skills; shared manifest metadata consistent |
-| `claude plugin validate plugins/engineering` | Passed; lists `engineering:engineering-partner` alongside the existing skills |
-| Skill creator's `quick_validate.py plugins/engineering/skills/engineering-partner` | Passed: skill frontmatter and naming valid |
+| `claude plugin validate plugins/engineering` | Passed; lists `engineering:pair-with-me` alongside the existing skills |
+| Skill creator's `quick_validate.py plugins/engineering/skills/pair-with-me` | Passed: skill frontmatter and naming valid |
 
 Native validator: Claude Code 2.1.332. Claude emitted a missing listing-icon warning and marketplace install-line advice; neither changed the passing verdict. Its output explicitly says the skill contents were not read by this validator. These checks establish package structure and listing, not behavioral conformance. No plugin version bump or installation is part of this unreleased change.
 
 `git diff --check` and direct checks of the new Markdown links also passed. The root README's pre-existing removal of its Inspiration section was retained while adding the new skill's listing.
+
+## Naming update
+
+Renamed from `engineering-partner` to `pair-with-me` on November 26, 2026. Updated discovery metadata, examples, and supporting paths; the decision-making instructions and saved experimental observations are unchanged. The original results above predate the rename.
