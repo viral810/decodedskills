@@ -1,0 +1,205 @@
+{
+  "environment": {
+    "python": "3.13.5",
+    "sqlite": "3.49.1",
+    "platform": "macOS-26.7.3-arm64-arm-64bit-Mach-O"
+  },
+  "deduplication": {
+    "check_then_insert": {
+      "initial_reads": [
+        [],
+        []
+      ],
+      "write_outcomes": [
+        "inserted",
+        "inserted"
+      ],
+      "same_key_job_ids": [
+        1,
+        2
+      ],
+      "other_tenant_rows": 1
+    },
+    "unique": {
+      "initial_reads": [
+        [],
+        []
+      ],
+      "write_outcomes": [
+        "inserted",
+        "duplicate rejected"
+      ],
+      "same_key_job_ids": [
+        1
+      ],
+      "other_tenant_rows": 1
+    }
+  },
+  "exact_lookup": [
+    {
+      "input": "Ada",
+      "interpolated": [
+        [
+          1
+        ]
+      ],
+      "bound": [
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "input": "O'Brien",
+      "interpolated": {
+        "error": "near \"Brien\": syntax error"
+      },
+      "bound": [
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "input": "' OR 1=1 --",
+      "interpolated": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "bound": []
+    },
+    {
+      "input": "missing",
+      "interpolated": [],
+      "bound": []
+    }
+  ],
+  "index_tradeoff": {
+    "seed": 810,
+    "repetitions": 5,
+    "warmup_lookups": 10,
+    "same_lookup_results_all_repetitions": true,
+    "samples": {
+      "scan": [
+        {
+          "repetition": 1,
+          "lookup_400_ms": 266.08,
+          "insert_1000_ms": 8.124,
+          "database_bytes_before_inserts": 2007040,
+          "query_plan": [
+            "SCAN events"
+          ],
+          "rows_after_inserts": 21000
+        },
+        {
+          "repetition": 2,
+          "lookup_400_ms": 262.585,
+          "insert_1000_ms": 1.453,
+          "database_bytes_before_inserts": 2007040,
+          "query_plan": [
+            "SCAN events"
+          ],
+          "rows_after_inserts": 21000
+        },
+        {
+          "repetition": 3,
+          "lookup_400_ms": 286.395,
+          "insert_1000_ms": 1.532,
+          "database_bytes_before_inserts": 2007040,
+          "query_plan": [
+            "SCAN events"
+          ],
+          "rows_after_inserts": 21000
+        },
+        {
+          "repetition": 4,
+          "lookup_400_ms": 270.014,
+          "insert_1000_ms": 1.513,
+          "database_bytes_before_inserts": 2007040,
+          "query_plan": [
+            "SCAN events"
+          ],
+          "rows_after_inserts": 21000
+        },
+        {
+          "repetition": 5,
+          "lookup_400_ms": 265.89,
+          "insert_1000_ms": 1.429,
+          "database_bytes_before_inserts": 2007040,
+          "query_plan": [
+            "SCAN events"
+          ],
+          "rows_after_inserts": 21000
+        }
+      ],
+      "index": [
+        {
+          "repetition": 1,
+          "lookup_400_ms": 3.015,
+          "insert_1000_ms": 1.904,
+          "database_bytes_before_inserts": 2334720,
+          "query_plan": [
+            "SEARCH events USING COVERING INDEX events_tag (tag=?)"
+          ],
+          "rows_after_inserts": 21000
+        },
+        {
+          "repetition": 2,
+          "lookup_400_ms": 2.826,
+          "insert_1000_ms": 1.761,
+          "database_bytes_before_inserts": 2334720,
+          "query_plan": [
+            "SEARCH events USING COVERING INDEX events_tag (tag=?)"
+          ],
+          "rows_after_inserts": 21000
+        },
+        {
+          "repetition": 3,
+          "lookup_400_ms": 2.819,
+          "insert_1000_ms": 1.829,
+          "database_bytes_before_inserts": 2334720,
+          "query_plan": [
+            "SEARCH events USING COVERING INDEX events_tag (tag=?)"
+          ],
+          "rows_after_inserts": 21000
+        },
+        {
+          "repetition": 4,
+          "lookup_400_ms": 2.848,
+          "insert_1000_ms": 1.813,
+          "database_bytes_before_inserts": 2334720,
+          "query_plan": [
+            "SEARCH events USING COVERING INDEX events_tag (tag=?)"
+          ],
+          "rows_after_inserts": 21000
+        },
+        {
+          "repetition": 5,
+          "lookup_400_ms": 2.74,
+          "insert_1000_ms": 1.805,
+          "database_bytes_before_inserts": 2334720,
+          "query_plan": [
+            "SEARCH events USING COVERING INDEX events_tag (tag=?)"
+          ],
+          "rows_after_inserts": 21000
+        }
+      ]
+    },
+    "medians": {
+      "scan": {
+        "lookup_400_ms": 266.08,
+        "insert_1000_ms": 1.513,
+        "database_bytes_before_inserts": 2007040
+      },
+      "index": {
+        "lookup_400_ms": 2.826,
+        "insert_1000_ms": 1.813,
+        "database_bytes_before_inserts": 2334720
+      }
+    }
+  }
+}

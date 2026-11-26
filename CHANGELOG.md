@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Add `engineering-partner` for evidence-driven pairing, consequential challenges, alternatives, experiments, and justified agreement, with attributed research and author-run evaluation records.
+
 ## 0.3.0 — 2026-11-20 (preview)
 
 - Add `prove-it-works` for behavior-focused verification and evidence reports, independently authored with attribution to pstack's verification principle.
